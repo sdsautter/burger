@@ -13,11 +13,11 @@ var orm = {
             cb(result);
         });
     },
-    insertOne(): function(vals, cb) {
+    insertOne: function(vals, cb) {
         var queryString = "INSERT INTO burgers(burger_name) VALUES(?);";
 
 
-        connection.query(queryString, vals, function(err, result) {
+        connection.query(queryString, [vals], function(err, result) {
             if (err) {
                 throw err;
             }
@@ -25,11 +25,11 @@ var orm = {
         });
     },
     // An example of objColVals would be {name: panther, sleepy: true}
-    updateOne: function(name, id, cb) {
-        var queryString = "UPDATE burgers SET burger_name = ? WHERE id = ?";
+    updateOne: function(devoured, id, cb) {
+        var queryString = "UPDATE burgers SET devoured = ? WHERE id = ?";
 
         console.log(queryString);
-        connection.query(queryString, [name, id], function(err, result) {
+        connection.query(queryString, [devoured, id], function(err, result) {
             if (err) {
                 throw err;
             }
