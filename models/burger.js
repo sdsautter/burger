@@ -13,8 +13,8 @@ var burger = {
       return cb(res);
     });
   },
-  update: function(name, id, cb) {
-    orm.updateOne(name, id, function(res) {
+  update: function(devoured, id, cb) {
+    orm.updateOne(devoured, id, function(res) {
       return cb(res);
     });
   }

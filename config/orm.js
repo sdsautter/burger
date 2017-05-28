@@ -29,6 +29,8 @@ var orm = {
         var queryString = "UPDATE burgers SET devoured = ? WHERE id = ?";
 
         console.log(queryString);
+        console.log(devoured);
+        console.log(id);
         connection.query(queryString, [devoured, id], function(err, result) {
             if (err) {
                 throw err;
