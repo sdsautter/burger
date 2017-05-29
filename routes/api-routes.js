@@ -17,7 +17,15 @@ module.exports = function(app) {
     // findAll returns all entries for a table when used with no options
     db.Burger.findAll({}).then(function(dbBurger) {
       // We have access to the Burgers as an argument inside of the callback function
-      res.json(dbBurger);
+      // console.log("find All:");
+      // console.log(dbBurger.length);
+      // for (var i = 0; i < dbBurger.length; i++) {
+      // console.log(dbBurger[i].dataValues);
+      // }
+      var burgers = {
+        burgers: dbBurger
+      };
+      res.render("index", burgers);
     });
   });
 
@@ -27,11 +35,14 @@ module.exports = function(app) {
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
     db.Burger.create({
-      name: req.body.text,
+      name: req.body.name,
       devoured: req.body.devoured
     }).then(function(dbBurger) {
       // We have access to the new Burger as an argument inside of the callback function
-      res.json(dbBurger);
+      // console.log("consoke:");
+      
+      // console.log(dbBurger);
+        res.redirect("/");
     });
   });
 
@@ -54,15 +65,15 @@ module.exports = function(app) {
 
     // Update takes in an object describing the properties we want to update, and
     // we use where to describe which objects we want to update
+    console.log(req.body.name);
     db.Burger.update({
-      name: req.body.name,
       devoured: req.body.devoured
     }, {
       where: {
         id: req.params.id
       }
     }).then(function(dbBurger) {
-      res.json(dbBurger);
+      res.redirect("/");
     });
   });
 };
