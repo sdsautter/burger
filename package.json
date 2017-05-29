@@ -8,19 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sdsautter/burger.git"
+    "url": "git+https://github.com/sdsautter/sequelizedBurger.git"
   },
   "author": "Scotty D. Sautter the First, Esq.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sdsautter/burger/issues"
+    "url": "https://github.com/sdsautter/sequelizedBurger/issues"
   },
-  "homepage": "https://github.com/sdsautter/burger#readme",
+  "homepage": "https://github.com/sdsautter/sequelizedBurger#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "method-override": "^2.3.8",
-    "mysql": "^2.13.0"
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.4"
   }
 }
