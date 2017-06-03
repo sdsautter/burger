@@ -19,11 +19,13 @@
         <div class="col-12">
           <ul>
             {{#each burgers}}
-              {{#unless this.dataValues.devoured}}
+              {{#unless this.devoured}}
                 <li>
-                  {{this.dataValues.name}}
+                  {{this.burger_name}}
 
-                  <form action="/{{this.dataValues.id}}?_method=PUT" method="POST">
+                  <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <label for="customer">Customer Name:</label>
+                    <input type="text" id="customer" name="customer_name">
                     <input type="hidden" name="devoured" value="1">
                     <button type="submit">Eat Me</button>
                   </form>
@@ -43,9 +45,9 @@
         <div class="col-12">
           <ul>
             {{#each burgers}}
-              {{#if this.dataValues.devoured}}
+              {{#if this.devoured}}
                 <li>
-                  {{this.dataValues.name}}
+                  {{this.burger_name}} was eaten by {{this.customer_name}}
 
                 </li>
               {{/if}}
@@ -62,7 +64,7 @@
 
         <div class="form-group">
           <label for="burger">Burger Name:</label>
-          <input type="text" id="burger" name="name">
+          <input type="text" id="burger" name="burger_name">
         </div>
         <button type="submit">Add burger</button>
       </form>
